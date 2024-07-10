@@ -109,5 +109,15 @@ def test_issue_30_precision_loss():
     sheet.save_as(test_file)
 
 
+def test_issue_36():
+    from pyexcel_ods3 import get_data
+
+    test_file = "currency_without_currency.ods"
+    data = get_data(get_fixtures(test_file))
+    eq_(data["Sheet1"][6][0], '1.75"')
+    eq_(data["Sheet1"][6][5], "95")
+    eq_(data["Sheet1"][6][6], 25)
+
+
 def get_fixtures(filename):
     return os.path.join("tests", "fixtures", filename)

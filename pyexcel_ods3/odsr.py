@@ -43,7 +43,10 @@ class ODSSheet(ISheet):
             if service.has_no_digits_in_float(cell_value):
                 cell_value = int(cell_value)
 
-            ret = str(cell_value) + " " + cell.currency
+            if cell.currency is None:
+                ret = str(cell_value)
+            else:
+                ret = str(cell_value) + " " + cell.currency
         elif cell_type in service.ODS_FORMAT_CONVERSION:
             value = cell.value
             n_value = service.VALUE_CONVERTERS[cell_type](value)

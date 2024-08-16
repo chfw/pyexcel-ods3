@@ -4,6 +4,12 @@ releases:
 - changes:
   - action: added
     details:
+    - '`#36`: fixing get_data for a currency cell with no currency defined'
+  date: 10.7.2024
+  version: 0.6.2
+- changes:
+  - action: added
+    details:
     - '`#28`: support datetime'
   date: 1.2.2022
   version: 0.6.1
